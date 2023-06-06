@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form id="addTextForm">
+        <div>
+            <textarea id="content" rows="1" cols="10"></textarea>
+            <textarea id="contentIndented" rows="1" cols="10"></textarea>
+        </div>
+        <br>
+        <button type="button" onclick="addText()">Добавить текст</button>
+        <button type="button" onclick="addIndentedText()">Добавить текст (с отступом)</button>
+    </form>
+    <div class="text-container">
+        <div id="textContainer_left"></div>
+        <div id="textContainer_rignt"></div>
+    </div>
+    
+    <script src="js/script_server.js"></script>
+</body>
+</html>

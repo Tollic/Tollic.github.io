@@ -1,0 +1,73 @@
+.bonus_img{
+    position: absolute;
+    top: 5%;
+    left: 25%;
+
+    width: 8%;
+    height: 15%;
+
+    opacity: 0.8;
+}
+
+.coin_img{
+    position: absolute;
+    top: 17%;
+    left: 15%;
+
+    width: 8%;
+    height: 14%;
+}
+
+.court_img{
+    position: absolute;
+    top: 18%;
+    left: 23%;
+
+    width: 8%;
+    height: 9%;
+}
+
+.xix_img{
+    position: absolute;
+    top: 18%;
+    left: 32%;
+
+    width: 6%;
+    height: 10%;
+}
+
+.star_img{
+    position: absolute;
+    top: 17%;
+    left: 40%;
+
+    width: 7%;
+    height: 11%;
+}
+
+.corona_z_img{
+    position: absolute;
+    top: 36%;
+    left: 16%;
+
+    width: 4%;
+    height: 4%;
+}
+
+.corona_s_img{
+    position: absolute;
+    top: 41%;
+    left: 15.6%;
+
+    width: 4%;
+    height: 6%;
+}
+
+.corona_b_img{
+    position: absolute;
+    top: 46%;
+    left: 15.3%;
+
+    width: 5%;
+    height: 10%;
+}

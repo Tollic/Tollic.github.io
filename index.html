@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BONUS BUY MADMAX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/img.css">
+    <link rel="stylesheet" href="css/linia.css">
+    <link rel="stylesheet" href="css/style_js.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="bonus" id="bonus"></div><img src="img/bonus.png" class="bonus_img">
+
+    <div class="border">
+        MADMAX
+    </div>
+
+    <div class="bonus_buy">
+        <h1 class="b_b">BONUS BUY</h1>
+        <h2 class="m_m">MADMAX</h2>
+    </div>
+
+    <div class="coin" id="coin"></div><img src="img/coin.png" class="coin_img">
+    <div class="dotted-line-1"></div>
+    <div class="court" id="court"></div><img src="img/court.png" class="court_img">
+    <div class="dotted-line-2"></div>
+    <div class="xix" id="xix"></div><img src="img/xix.png" class="xix_img">
+    <div class="dotted-line-3"></div>
+    <div class="star" id="star"></div><img src="img/star.png" class="star_img">
+
+    <h3 class="sum">0</h3>
+    <h3 class="ras_rub">₽</h3>
+
+    <h3 class="ob_x">0</h3>
+    <h3 class="ras_x">x</h3>
+
+    <h3 class="x_x">х</h3>
+
+    <h3 class="cyp_bon" id="cyp_bon">0</h3>
+
+    <div class="dotted-line-4"></div>
+    <h1 class="lider">Лидеры стрима</h1>
+    <div class="dotted-line-5"></div>
+
+    <div class="corona_z" id="corona_z"></div><img src="img/corona_z.png" class="corona_z_img">
+    <div class="corona_s" id="corona_s"></div><img src="img/corona_s.png" class="corona_s_img">
+    <div class="corona_b" id="corona_b"></div><img src="img/corona_b.png" class="corona_b_img">
+
+    <div class="dotted-line-6"></div>
+
+    <h3 class="lider_1">сл</h3>
+    <h3 class="lider_2">сл</h3>
+    <h3 class="lider_3">сл</h3>
+
+    <h3 class="nic_1">ник</h3>
+    <h3 class="nic_2">ник</h3>
+    <h3 class="nic_3">ник</h3>
+
+    <h3 class="ix_1">икс</h3>
+    <h3 class="ix_2">икс</h3>
+    <h3 class="ix_3">икс</h3>
+
+    <h3 class="sum_v_1">выиграш</h3>
+    <h3 class="sum_v_2">выиграш</h3>
+    <h3 class="sum_v_3">выиграш</h3>
+
+    <div class="scrollable-container">
+        <div class="text-container">
+          <div id="textContainer_left"></div>
+          <div id="textContainer_rignt"></div>
+        </div>
+    </div>
+
+    <form id="addTextForm">
+        <div>
+            <textarea id="content" rows="2" cols="19" class="dop_text_1"></textarea>
+            <textarea id="contentIndented" rows="2" cols="16" class="dop_text_2"></textarea>
+        </div>
+        <br>
+        <button type="button" onclick="addText()" class="dop_text_1_bottom">Добавить название</button>
+        <button type="button" onclick="addIndentedText()" class="dop_text_2_bottom">Добавить сумму</button>
+    </form>
+
+    <button onclick="startAutoScroll()" class="dop_bottom_1">Прокручивать</button>
+    <button onclick="stopAutoScroll()" class="dop_bottom_2">Остановить</button>
+
+    <!-- <div id="inputs-container">
+        <textarea class="text-input" ></textarea>
+    </div>
+    
+    <button id="add-input-button">Добавить поле</button>
+    <button id="calculate-button">Рассчитать</button>
+    <div id="result-container"></div> -->
+
+    <!-- <input type="text" class="name_st" placeholder="Название">
+    <input type="text" class="col_po" placeholder="сколько купленно">
+    <input type="text" class="sum_d" placeholder="всего денег">
+    <input type="text" class="col_x" placeholder="сколько х">
+    <div id="input0"></div>
+    <div class="add" onclick="addInput()">+</div> -->
+
+    <!-- <p>1. <input type="text" id="in1" name="1" placeholder="Название"></p>
+    <p>2. <input type="text" id="in2" name="2" placeholder="сколько купленно"></p>
+    <p><button type="button"  onclick="addEl()">Добавить поле</button></p>
+    <p><input type="submit" /></p> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/script_top.js"></script>
+
+    <script src="js/script_bottom.js"></script>
+
+    <script src="js/script_server.js"></script>
+    <script src="js/scrol.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>BONUSBUY MADMAX</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="frame">
+        <div class="border_top">
+        </div>
+    </div>
+
+    <div id="inputs-container">
+        <textarea class="text-input" ></textarea>
+    </div>
+    <button id="add-input-button">Добавить поле</button>
+    <button id="calculate-button">Рассчитать</button>
+    <div id="result-container"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html> -->
