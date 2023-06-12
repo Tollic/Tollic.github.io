@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Отображение сохраненного текста</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div id="displayContainer"></div>
+
+<script>
+  const socket = new WebSocket('ws://example.com'); // Замените на адрес WebSocket сервера
+
+  // Обработчик открытия соединения
+  socket.onopen = function(event) {
+    console.log('WebSocket соединение открыто');
+  };
+
+  // Обработчик получения сообщения от сервера
+  socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+
+    // Отображаем полученные данные на странице
+    const displayContainer = document.getElementById('displayContainer');
+    displayContainer.innerHTML = '';
+
+    for (let i = 0; i < data.length; i++) {
+      const displayBlock = document.createElement('div');
+      displayBlock.textContent = data[i];
+      displayContainer.appendChild(displayBlock);
+    }
+  };
+
+  // Обработчик закрытия соединения
+  socket.onclose = function(event) {
+    console.log('WebSocket соединение закрыто');
+  };
+</script>
+
+  <!-- <div id="textContainer"></div>
+  <div id="sumContainer"></div>
+  <div id="slot1Container"></div>
+  <div id="ics1Container"></div>
+  <div id="vin1Container"></div>
+  <div id="slot2Container"></div>
+  <div id="ics2Container"></div>
+  <div id="vin2Container"></div>
+  <div id="slot3Container"></div>
+  <div id="ics3Container"></div>
+  <div id="vin3Container"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // Функция для получения сохраненного текста из файла и обновления соответствующего блока
+  function getTextAndSetContainer(containerId, filename) {
+    $.ajax({
+      url: filename,
+      success: function(response) {
+        $(containerId).text(response);
+      }
+    });
+  }
+
+  // Функция для получения всех сохраненных значений
+  function getAllValues() {
+    getTextAndSetContainer('#textContainer', 'data.txt');
+    getTextAndSetContainer('#sumContainer', 'sum.txt');
+    getTextAndSetContainer('#slot1Container', 'slot_1.txt');
+    getTextAndSetContainer('#ics1Container', 'ics_1.txt');
+    getTextAndSetContainer('#vin1Container', 'vin_1.txt');
+    getTextAndSetContainer('#slot2Container', 'slot_2.txt');
+    getTextAndSetContainer('#ics2Container', 'ics_2.txt');
+    getTextAndSetContainer('#vin2Container', 'vin_2.txt');
+    getTextAndSetContainer('#slot3Container', 'slot_3.txt');
+    getTextAndSetContainer('#ics3Container', 'ics_3.txt');
+    getTextAndSetContainer('#vin3Container', 'vin_3.txt');
+  }
+
+  // Вызов функции для получения всех сохраненных значений
+  getAllValues();
+
+  // Установка интервала обновления (например, каждые 5 секунд)
+  setInterval(getAllValues, 5000);
+</script> -->
+
+  <!-- <div id="textContainer"></div>
+
+  <script>
+    // Функция для получения сохраненного текста из файла
+    function getText() {
+      $.ajax({
+        url: 'data.txt',
+        success: function(response) {
+          $('#textContainer').text(response);
+        }
+      });
+    }
+
+    getText();
+
+    // Установка интервала обновления (например, каждые 5 секунд)
+    setInterval(getText, 1000);
+  </script> -->
+</body>
+</html>

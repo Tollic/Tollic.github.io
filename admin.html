@@ -1,27 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+  <title>Админка</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script src="js/sinxron.js"></script>
 </head>
 <body>
-    <form id="addTextForm">
-        <div>
-            <textarea id="content" rows="1" cols="10"></textarea>
-            <textarea id="contentIndented" rows="1" cols="10"></textarea>
-        </div>
-        <br>
-        <button type="button" onclick="addText()">Добавить текст</button>
-        <button type="button" onclick="addIndentedText()">Добавить текст (с отступом)</button>
-    </form>
-    <div class="text-container">
-        <div id="textContainer_left"></div>
-        <div id="textContainer_rignt"></div>
+  <!-- <form id="myForm">
+    <input type="sum" id="sum" placeholder="Введите сумму пополнения">
+
+    <input type="slot_1" id="slot_1" placeholder="Слот на первом месте">
+    <input type="ics_1" id="ics_1" placeholder="Икс на первом месте">
+    <input type="text" id="vin_1" placeholder="Выиграш на первом месте">
+
+    <input type="slot_2" id="slo_2" placeholder="Слот на втором месте">
+    <input type="ics_2" id="ics_2" placeholder="Икс на втором месте">
+    <input type="vin_2" id="vin_2" placeholder="выиграш на втором месте">
+
+    <input type="slot_3" id="slot_3" placeholder="Слот на третьем месте">
+    <input type="ics_3" id="ics_3" placeholder="Икс на третьем месте">
+    <input type="vin_3" id="vin_3" placeholder="выиграш на третьем месте">
+    <button type="submit">Сохранить</button>
+    <button type="button" id="addInput">Добавить инпут</button>
+    <div id="newInputsContainer"></div>
+  </form> -->
+  <form id="myForm">
+    <div id="inputContainer">
+      <input type="text" class="inputField" placeholder="Введите текст">
     </div>
-    
-    <script src="js/script_server.js"></script>
+    <button type="button" id="addInput">Добавить поле</button>
+    <button type="submit">Отправить</button>
+  </form>
+  
+  <script>
+    const socket = new WebSocket('ws:localhost:3000/display.html'); // Замените на адрес WebSocket сервера
+  
+    // Обработчик открытия соединения
+    socket.onopen = function(event) {
+      console.log('WebSocket соединение открыто');
+    };
+  
+    // Обработчик получения сообщения от сервера
+    socket.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+  
+      // Отображаем полученные данные на странице
+      const displayContainer = document.getElementById('displayContainer');
+      displayContainer.innerHTML = '';
+  
+      for (let i = 0; i < data.length; i++) {
+        const displayBlock = document.createElement('div');
+        displayBlock.textContent = data[i];
+        displayContainer.appendChild(displayBlock);
+      }
+    };
+  
+    // Обработчик закрытия соединения
+    socket.onclose = function(event) {
+      console.log('WebSocket соединение закрыто');
+    };
+  
+    // Обработчик добавления нового поля ввода
+    document.getElementById('addInput').addEventListener('click', function() {
+      const newInput = document.createElement('input');
+      newInput.setAttribute('type', 'text');
+      newInput.setAttribute('class', 'inputField');
+      newInput.setAttribute('placeholder', 'Введите текст');
+      document.getElementById('inputContainer').appendChild(newInput);
+    });
+  
+    // Обработчик отправки формы
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Предотвращаем перезагрузку страницы
+  
+      const formData = [];
+      const inputFields = document.getElementsByClassName('inputField');
+  
+      // Собираем данные из всех полей ввода
+      for (let i = 0; i < inputFields.length; i++) {
+        formData.push(inputFields[i].value);
+      }
+  
+      // Отправляем данные через WebSocket соединение
+      socket.send(JSON.stringify(formData));
+    });
+  </script>
+  
 </body>
 </html>
