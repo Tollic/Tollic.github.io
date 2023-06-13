@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Добавление инпутов и сохранение данных</title>
+</head>
+<body>
+  <form id="myForm">
+    <input type="sum" id="sum" placeholder="Введите сумму пополнения">
+
+    <input type="slot_1" id="slot_1" placeholder="Слот на первом месте">
+    <input type="ics_1" id="ics_1" placeholder="Икс на первом месте">
+    <input type="text" id="vin_1" placeholder="Выиграш на первом месте">
+
+    <input type="slot_2" id="slo_2" placeholder="Слот на втором месте">
+    <input type="ics_2" id="ics_2" placeholder="Икс на втором месте">
+    <input type="vin_2" id="vin_2" placeholder="выиграш на втором месте">
+
+    <input type="slot_3" id="slot_3" placeholder="Слот на третьем месте">
+    <input type="ics_3" id="ics_3" placeholder="Икс на третьем месте">
+    <input type="vin_3" id="vin_3" placeholder="выиграш на третьем месте">
+    
+    <div id="inputContainer">
+      <input type="text" class="inputField" placeholder="поле слота">
+    </div>
+    <div id="inputContainer_sum">
+      <input type="text" class="inputField" placeholder="поле суммы">
+    </div>
+    <button type="button" id="addInput">Добавить поле слота</button>
+    <button type="button_sum" id="addInput_sum">Добавить поле суммы</button>
+    <button type="submit">Сохранить</button>
+  </form>
+
+  <div id="displayContainer"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      let inputCount = 1;
+
+      // Обработчик добавления Добавить поле слота
+      $('#addInput').on('click', function() {
+        const newInput = $('<input type="text" class="inputField" placeholder="Добавить поле слота">');
+        $('#inputContainer').append(newInput);
+        inputCount++;
+      });
+
+      // Обработчик добавления Добавить поле суммы
+      $('#addInput_sum').on('click', function() {
+        const newInput = $('<input type="text" class="inputField_sum" placeholder="Добавить поле суммы">');
+        $('#inputContainer_sum').append(newInput);
+        inputCount++;
+      });
+
+      // Обработчик отправки формы
+      $('#myForm').on('submit', function(event) {
+        event.preventDefault(); // Предотвращаем перезагрузку страницы
+
+        const formData = [];
+
+        // Собираем данные из всех полей слота
+        $('.inputField').each(function() {
+          const inputValue = $(this).val();
+          formData.push(inputValue);
+        });
+
+        // Собираем данные из всех полей суммы
+        $('.inputField_sum').each(function() {
+          const inputValue = $(this).val();
+          formData.push(inputValue);
+        });
+
+        // Отправляем данные на сервер всех полей слота
+        $.ajax({
+          url: 'save_data.php', // Замените на адрес обработчика на сервере
+          method: 'POST',
+          data: { values: formData },
+          success: function() {
+            console.log('Данные успешно сохранены');
+            updateDisplay();
+          },
+          error: function() {
+            console.error('Ошибка при сохранении данных');
+          }
+        });
+      });
+      
+      // // Отправляем данные на сервер всех полей слота
+      // $.ajax({
+      //     url: 'save_data_sum.php', // Замените на адрес обработчика на сервере
+      //     method: 'POST',
+      //     data: { values: formData },
+      //     success: function() {
+      //       console.log('Данные успешно сохранены');
+      //       updateDisplay();
+      //     },
+      //     error: function() {
+      //       console.error('Ошибка при сохранении данных');
+      //     }
+      //   });
+      // });
+
+      // Функция для обновления содержимого на другой странице
+      function updateDisplay() {
+        // Запрашиваем данные с сервера
+        $.ajax({
+          url: 'get_data.php', // Замените на адрес обработчика на сервере
+          method: 'GET',
+          dataType: 'json',
+          success: function(response) {
+            // Очищаем содержимое контейнера от предыдущих данных
+            $('#displayContainer').empty();
+
+            // Выводим данные в отдельные блоки
+            response.forEach(function(value) {
+              const displayBlock = $('<div></div>').text(value);
+              $('#displayContainer').append(displayBlock);
+            });
+          },
+          error: function() {
+            console.error('Ошибка при получении данных');
+          }
+        });
+      }
+
+      // Обновляем содержимое на другой странице при загрузке страницы
+      updateDisplay();
+      
+      // Обработка события отправки формы
+      $('#myForm').submit(function(event) {
+        event.preventDefault(); // Предотвращение обычного поведения формы (перезагрузка страницы)
+
+        // Получение значений из полей ввода
+        var sum = $('#sum').val();
+        var slot_1 = $('#slot_1').val();
+        var ics_1 = $('#ics_1').val();
+        var vin_1 = $('#vin_1').val();
+        var slot_2 = $('#slot_2').val();
+        var ics_2 = $('#ics_2').val();
+        var vin_2 = $('#vin_2').val();
+        var slot_3 = $('#slot_3').val();
+        var ics_3 = $('#ics_3').val();
+        var vin_3 = $('#vin_3').val();
+
+        // Отправка данных на сервер для сохранения в файлах
+        $.ajax({
+          type: 'POST',
+          url: 'index.php', // Путь к серверному скрипту для сохранения данных в файлах
+          data: {
+            sum: sum,
+            slot_1: slot_1,
+            ics_1: ics_1,
+            vin_1: vin_1,
+            slot_2: slot_2,
+            ics_2: ics_2,
+            vin_2: vin_2,
+            slot_3: slot_3,
+            ics_3: ics_3,
+            vin_3: vin_3
+          },
+          success: function(response) {
+            // Обработка успешного сохранения данных
+            console.log('Данные успешно сохранены');
+            // Очистка полей ввода после сохранения
+            // $('#sum').val('');
+            // $('#slot_1').val('');
+            // $('#ics_1').val('');
+            // $('#vin_1').val('');
+            // $('#slot_2').val('');
+            // $('#ics_2').val('');
+            // $('#vin_2').val('');
+            // $('#slot_3').val('');
+            // $('#ics_3').val('');
+            // $('#vin_3').val('');
+          },
+          error: function() {
+            // Обработка ошибки сохранения данных
+            console.log('Произошла ошибка при сохранении данных');
+          }
+        });
+      });
+    });
+
+    let inputCount_sum = 1;
+
+      // Обработчик добавления Добавить поле суммы
+      $('#addInput_sum').on('click', function() {
+        const newInput = $('<input type="text" class="inputField_sum" placeholder="Добавить поле суммы">');
+        $('#inputContainer_sum').append(newInput);
+        inputCount_sum++;
+      });
+
+      // Обработчик отправки формы
+      $('#myForm').on('submit', function(event) {
+        event.preventDefault(); // Предотвращаем перезагрузку страницы
+
+        const formData = [];
+
+        // Собираем данные из всех полей суммы
+        $('.inputField_sum').each(function() {
+          const inputValue = $(this).val();
+          formData.push(inputValue);
+        });
+
+        // Отправляем данные на сервер всех полей слота
+        $.ajax({
+          url: 'save_data_sum.php', // Замените на адрес обработчика на сервере
+          method: 'POST',
+          data: { values: formData },
+          success: function() {
+            console.log('Данные успешно сохранены');
+            updateDisplay();
+          },
+          error: function() {
+            console.error('Ошибка при сохранении данных');
+          }
+        });
+      });
+
+      // Функция для обновления содержимого на другой странице
+      function updateDisplay() {
+        // Запрашиваем данные с сервера
+        $.ajax({
+          url: 'get_data_sum.php', // Замените на адрес обработчика на сервере
+          method: 'GET',
+          dataType: 'json',
+          success: function(response) {
+            // Очищаем содержимое контейнера от предыдущих данных
+            $('#displayContainer_sum').empty();
+
+            // Выводим данные в отдельные блоки
+            response.forEach(function(value) {
+              const displayBlock = $('<div></div>').text(value);
+              $('#displayContainer_sum').append(displayBlock);
+            });
+          },
+          error: function() {
+            console.error('Ошибка при получении данных');
+          }
+        });
+      }
+
+      // Обновляем содержимое на другой странице при загрузке страницы
+      updateDisplay();
+  </script>
+</body>
+</html>

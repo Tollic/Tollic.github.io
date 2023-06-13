@@ -76,7 +76,7 @@
   height: 20px;
 }
 
-.text-block-indented {
+/* .text-block-indented {
   margin-left: 80px;
   font-size: 20px;
 }
@@ -89,18 +89,23 @@
 .text-block-left {
   margin-right: 10px;
   font-size: 20px;
-}
+} */
   
 .text-container {
   display: flex;
+  font-size: 20px;
+}
+
+#textContainer_rignt{
+  margin-left: 80px;
 }
   
-.text-block.active {
+/* .text-block.active {
   font-size: 24px;
 }
   
 #textContainer_left{
   font-size: 16px;
   transition: font-size 0.3s ease;
-}
+} */
 

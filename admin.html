@@ -3,89 +3,50 @@
 <head>
   <title>Админка</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/admin.css">
   
   <script src="js/sinxron.js"></script>
 </head>
 <body>
-  <!-- <form id="myForm">
-    <input type="sum" id="sum" placeholder="Введите сумму пополнения">
-
-    <input type="slot_1" id="slot_1" placeholder="Слот на первом месте">
-    <input type="ics_1" id="ics_1" placeholder="Икс на первом месте">
-    <input type="text" id="vin_1" placeholder="Выиграш на первом месте">
-
-    <input type="slot_2" id="slo_2" placeholder="Слот на втором месте">
-    <input type="ics_2" id="ics_2" placeholder="Икс на втором месте">
-    <input type="vin_2" id="vin_2" placeholder="выиграш на втором месте">
-
-    <input type="slot_3" id="slot_3" placeholder="Слот на третьем месте">
-    <input type="ics_3" id="ics_3" placeholder="Икс на третьем месте">
-    <input type="vin_3" id="vin_3" placeholder="выиграш на третьем месте">
-    <button type="submit">Сохранить</button>
-    <button type="button" id="addInput">Добавить инпут</button>
-    <div id="newInputsContainer"></div>
-  </form> -->
   <form id="myForm">
-    <div id="inputContainer">
-      <input type="text" class="inputField" placeholder="Введите текст">
+    <div class="sum">Сумма пополнения:<input type="sum" id="sum" placeholder="Сумма пополнения"></div>
+
+    <div class="obs">
+      <div class="obs_ot_1">
+        <div class="slot_1">Слот на первом месте: <input type="slot_1" id="slot_1" placeholder="Слот на первом месте"></div>
+        <div class="ics_1">Икс на первом месте: <input type="ics_1" id="ics_1" placeholder="Икс на первом месте"></div>
+        <div class="vin_1">Выиграш на первом месте: <input type="text" id="vin_1" placeholder="Выиграш на первом месте"></div>
+      </div>
+
+      <div class="obs_ot_2">
+        <div class="slot_2">Слот на втором месте: <input type="slot_2" id="slo_2" placeholder="Слот на втором месте"></div>
+        <div class="ics_2">Икс на втором месте: <input type="ics_2" id="ics_2" placeholder="Икс на втором месте"></div>
+        <div class="vin_2">Выиграш на втором месте: <input type="vin_2" id="vin_2" placeholder="выиграш на втором месте"></div>
+      </div>
+
+      <div class="obs_ot_3">
+        <div class="slot_3"></div>Слот на третьем месте: <input type="slot_3" id="slot_3" placeholder="Слот на третьем месте">
+        <div class="ics_3"></div>Икс на третьем месте: <input type="ics_3" id="ics_3" placeholder="Икс на третьем месте">
+        <div class="vin_3"></div>Выиграш на третьем месте: <input type="vin_3" id="vin_3" placeholder="выиграш на третьем месте">
+      </div>
     </div>
-    <button type="button" id="addInput">Добавить поле</button>
-    <button type="submit">Отправить</button>
+    
+    <div class="obs_1">
+      <div id="inputContainer">
+        Поле для слота: <input type="text" class="inputField" placeholder="поле слота">
+      </div>
+
+      <div id="inputContainer_sum">
+        Поле для суммы: <input type="text" class="inputField_sum" placeholder="поле суммы">
+      </div>
+    </div>
+
+    <div class="obs_2">
+      <button type="button" id="addInput">Добавить поле слота</button>
+      <button type="button" id="addInput_sum">Добавить поле суммы</button>
+    </div>
+    <button type="submit" id="save">Сохранить</button>
   </form>
-  
-  <script>
-    const socket = new WebSocket('ws:tollic.github.io/display.html'); // Замените на адрес WebSocket сервера
-  
-    // Обработчик открытия соединения
-    socket.onopen = function(event) {
-      console.log('WebSocket соединение открыто');
-    };
-  
-    // Обработчик получения сообщения от сервера
-    socket.onmessage = function(event) {
-      const data = JSON.parse(event.data);
-  
-      // Отображаем полученные данные на странице
-      const displayContainer = document.getElementById('displayContainer');
-      displayContainer.innerHTML = '';
-  
-      for (let i = 0; i < data.length; i++) {
-        const displayBlock = document.createElement('div');
-        displayBlock.textContent = data[i];
-        displayContainer.appendChild(displayBlock);
-      }
-    };
-  
-    // Обработчик закрытия соединения
-    socket.onclose = function(event) {
-      console.log('WebSocket соединение закрыто');
-    };
-  
-    // Обработчик добавления нового поля ввода
-    document.getElementById('addInput').addEventListener('click', function() {
-      const newInput = document.createElement('input');
-      newInput.setAttribute('type', 'text');
-      newInput.setAttribute('class', 'inputField');
-      newInput.setAttribute('placeholder', 'Введите текст');
-      document.getElementById('inputContainer').appendChild(newInput);
-    });
-  
-    // Обработчик отправки формы
-    document.getElementById('myForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Предотвращаем перезагрузку страницы
-  
-      const formData = [];
-      const inputFields = document.getElementsByClassName('inputField');
-  
-      // Собираем данные из всех полей ввода
-      for (let i = 0; i < inputFields.length; i++) {
-        formData.push(inputFields[i].value);
-      }
-  
-      // Отправляем данные через WebSocket соединение
-      socket.send(JSON.stringify(formData));
-    });
-  </script>
-  
+
 </body>
 </html>

@@ -62,7 +62,7 @@ body{
 .cyp_bon {
   position: absolute;
   top: 26.5%;
-  left: 43.5%;
+  left: 43%;
 }
 
 .ras_rub {
@@ -94,58 +94,40 @@ body{
   left: 22%;
 }
 
-.nic_1 {
-  position: absolute;
-  top: 35%;
-  left: 29%;
-}
-
-.nic_2 {
-  position: absolute;
-  top: 41%;
-  left: 29%;
-}
-
-.nic_3 {
-  position: absolute;
-  top: 48%;
-  left: 29%;
-}
-
 .ix_1 {
   position: absolute;
   top: 35%;
-  left: 36%;
+  left: 32%;
 }
 
 .ix_2 {
   position: absolute;
   top: 41%;
-  left: 36%;
+  left: 32%;
 }
 
 .ix_3 {
   position: absolute;
   top: 48%;
-  left: 36%;
+  left: 32%;
 }
 
 .sum_v_1 {
   position: absolute;
   top: 35%;
-  left: 43%;
+  left: 40%;
 }
 
 .sum_v_2 {
   position: absolute;
   top: 41%;
-  left: 43%;
+  left: 40%;
 }
 
 .sum_v_3 {
   position: absolute;
   top: 48%;
-  left: 43%;
+  left: 40%;
 }
 
 .scrollable-container {

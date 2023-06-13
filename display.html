@@ -6,38 +6,7 @@
   <script src="script.js"></script>
 </head>
 <body>
-  <div id="displayContainer"></div>
-
-<script>
-  const socket = new WebSocket('ws://example.com'); // Замените на адрес WebSocket сервера
-
-  // Обработчик открытия соединения
-  socket.onopen = function(event) {
-    console.log('WebSocket соединение открыто');
-  };
-
-  // Обработчик получения сообщения от сервера
-  socket.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-
-    // Отображаем полученные данные на странице
-    const displayContainer = document.getElementById('displayContainer');
-    displayContainer.innerHTML = '';
-
-    for (let i = 0; i < data.length; i++) {
-      const displayBlock = document.createElement('div');
-      displayBlock.textContent = data[i];
-      displayContainer.appendChild(displayBlock);
-    }
-  };
-
-  // Обработчик закрытия соединения
-  socket.onclose = function(event) {
-    console.log('WebSocket соединение закрыто');
-  };
-</script>
-
-  <!-- <div id="textContainer"></div>
+  <div id="textContainer"></div>
   <div id="sumContainer"></div>
   <div id="slot1Container"></div>
   <div id="ics1Container"></div>
@@ -81,7 +50,7 @@
 
   // Установка интервала обновления (например, каждые 5 секунд)
   setInterval(getAllValues, 5000);
-</script> -->
+</script>
 
   <!-- <div id="textContainer"></div>
 

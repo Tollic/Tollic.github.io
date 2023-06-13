@@ -13,8 +13,6 @@
 </head>
 <body>
     <div class="bonus" id="bonus"></div><img src="img/bonus.png" class="bonus_img">
-    <a href="admin.html">fdf</a>
-    <a href="display.html">fdfdfd</a>
     <div class="border">
         MADMAX
     </div>
@@ -32,13 +30,13 @@
     <div class="dotted-line-3"></div>
     <div class="star" id="star"></div><img src="img/star.png" class="star_img">
 
-    <h3 class="sum">0</h3>
+    <h3 class="sum" id="sum"></h3>
     <h3 class="ras_rub">₽</h3>
 
-    <h3 class="ob_x">0</h3>
-    <h3 class="ras_x">x</h3>
+    <!-- <h3 class="ob_x">0</h3>
+    <h3 class="ras_x">x</h3> -->
 
-    <h3 class="x_x">х</h3>
+    <!-- <h3 class="x_x">х</h3> -->
 
     <h3 class="cyp_bon" id="cyp_bon">0</h3>
 
@@ -52,17 +50,17 @@
 
     <div class="dotted-line-6"></div>
 
-    <h3 class="lider_1">сл</h3>
-    <h3 class="lider_2">сл</h3>
-    <h3 class="lider_3">сл</h3>
+    <h3 class="lider_1" id="lider_1"></h3>
+    <h3 class="lider_2" id="lider_2"></h3>
+    <h3 class="lider_3" id="lider_3"></h3>
     
-    <h3 class="ix_1">икс</h3>
-    <h3 class="ix_2">икс</h3>
-    <h3 class="ix_3">икс</h3>
+    <h3 class="ix_1" id="ix_1"></h3>
+    <h3 class="ix_2" id="ix_2"></h3>
+    <h3 class="ix_3" id="ix_3"></h3>
 
-    <h3 class="sum_v_1">выиграш</h3>
-    <h3 class="sum_v_2">выиграш</h3>
-    <h3 class="sum_v_3">выиграш</h3>
+    <h3 class="sum_v_1" id="sum_v_1"></h3>
+    <h3 class="sum_v_2" id="sum_v_2"></h3>
+    <h3 class="sum_v_3" id="sum_v_3"></h3>
 
     <div class="scrollable-container">
         <div class="text-container">
@@ -71,51 +69,21 @@
         </div>
     </div>
 
-    <form id="addTextForm">
-        <div>
-            <textarea id="content" rows="2" cols="19" class="dop_text_1"></textarea>
-            <textarea id="contentIndented" rows="2" cols="16" class="dop_text_2"></textarea>
-        </div>
-        <br>
-        <button type="button" onclick="addText()" class="dop_text_1_bottom">Добавить название</button>
-        <button type="button" onclick="addIndentedText()" class="dop_text_2_bottom">Добавить сумму</button>
-    </form>
-
     <button onclick="startAutoScroll()" class="dop_bottom_1">Прокручивать</button>
     <button onclick="stopAutoScroll()" class="dop_bottom_2">Остановить</button>
 
-
-    <!-- <div id="inputs-container">
-        <textarea class="text-input" ></textarea>
-    </div>
-    
-    <button id="add-input-button">Добавить поле</button>
-    <button id="calculate-button">Рассчитать</button>
-    <div id="result-container"></div> -->
-
-    <!-- <input type="text" class="name_st" placeholder="Название">
-    <input type="text" class="col_po" placeholder="сколько купленно">
-    <input type="text" class="sum_d" placeholder="всего денег">
-    <input type="text" class="col_x" placeholder="сколько х">
-    <div id="input0"></div>
-    <div class="add" onclick="addInput()">+</div> -->
-
-    <!-- <p>1. <input type="text" id="in1" name="1" placeholder="Название"></p>
-    <p>2. <input type="text" id="in2" name="2" placeholder="сколько купленно"></p>
-    <p><button type="button"  onclick="addEl()">Добавить поле</button></p>
-    <p><input type="submit" /></p> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- <script src="js/script.js"></script> -->
-    <script src="js/script_top.js"></script>
+    <!-- <script src="js/script_top.js"></script>
 
     <script src="js/script_bottom.js"></script>
 
-    <script src="js/script_server.js"></script>
+    <script src="js/script_server.js"></script> -->
     <script src="js/scrol.js"></script>
     <script src="functions/updateData.js"></script>
-    <script src="functions/server.js"></script>
+    <!-- <script src="functions/server.js"></script> -->
     <script src="js/sinxron.js"></script>
 </body>
 </html>
