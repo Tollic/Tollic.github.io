@@ -22,7 +22,7 @@ function getAllValues() {
 
 getAllValues();
 
-setInterval(getAllValues, 5000);
+setInterval(getAllValues, 1000);
 
 // $(document).ready(function() {
 //   function updateDisplay() {
@@ -79,7 +79,7 @@ $(document).ready(function() {
   }
 
   updateDisplay();
-  setInterval(updateDisplay, 5000);
+  setInterval(updateDisplay, 1000);
 });
 
 
@@ -104,5 +104,5 @@ $(document).ready(function() {
   }
 
   updateDisplay();
-  setInterval(updateDisplay, 5000);
+  setInterval(updateDisplay, 1000);
 });
