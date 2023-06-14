@@ -3,10 +3,10 @@ body{
   color: rgb(255, 255, 255);
 }
 
-.border {
+/* .border {
   position: absolute;
-  top: 7%;
-  left: 25.7%;
+  top: 6%;
+  left: 3.5%;
 
   padding: 20px;
   width: 4%;
@@ -14,18 +14,18 @@ body{
 
   font-size: 15px;
   font-weight: bold;
-}
+} */
 
 .b_b{
   position: absolute;
   top: 5%;
-  left: 32%;
+  left: 10%;
 }
 
 .m_m{
   position: absolute;
-  top: 10%;
-  left: 32%;
+  top: 9%;
+  left: 10%;
 }
 
 
@@ -36,9 +36,28 @@ body{
 }
 
 .sum {
-  position: absolute;
-  top: 26.5%;
-  left: 16.5%;
+  margin-top: 3.3%;
+  margin-left: 25%;
+
+  border-radius: 5%;
+  background-color: #ff00ea;
+  color: rgb(255, 255, 255);
+  padding: 5px 50px;
+  border: none;
+}
+
+.played{
+  margin-top: 3.3%;
+  margin-left: 0%;
+  border-radius: 5%;
+  background-color: #ff0000;
+  color: rgb(255, 255, 255);
+  padding: 5px 50px;
+  border: none;
+}
+
+.bloc_sum{
+  display: flex;
 }
 
 .ob_x {
