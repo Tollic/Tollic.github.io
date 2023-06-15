@@ -1,5 +1,5 @@
 body{
-  background-color: #26384e;
+  background-color: #3b5a80;
   color: rgb(255, 255, 255);
 }
 
@@ -40,7 +40,7 @@ body{
   margin-left: 25%;
 
   border-radius: 5%;
-  background-color: #ff00ea;
+  background-color: #ae00ff;
   color: rgb(255, 255, 255);
   padding: 5px 50px;
   border: none;
@@ -151,14 +151,14 @@ body{
 
 .scrollable-container {
   position: absolute;
-  top: 58%;
-  left: 16%;
+  top: 20%;
+  left: 10%;
 
-  height: 250px;
-  width: 31%;
+  height: 240px;
+  width: 26.5%;
 
   overflow-y: scroll; 
-  border: 1px solid #ccc;
+  border: 1px solid #a09e9e;
 }
 
 span {
@@ -202,24 +202,24 @@ span {
 
 .dop_bottom_1{
   position: absolute;
-  left: 80%;
-  top: 10%;
+  left: 60%;
+  top: 25%;
 
   border-radius: 5%;
-  background-color: #d0ff00;
-  color: rgb(0, 0, 0);
+  background-color: #002fff;
+  color: rgb(255, 255, 255);
   padding: 10px 20px;
   border: none;
 }
 
 .dop_bottom_2{
   position: absolute;
-  left: 90%;
-  top: 10%;
+  left: 80%;
+  top: 25%;
 
   border-radius: 5%;
-  background-color: #d0ff00;
-  color: rgb(0, 0, 0);
+  background-color: #002fff;
+  color: rgb(255, 255, 255);
   padding: 10px 20px;
   border: none;
 }

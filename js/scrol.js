@@ -9,7 +9,7 @@ function startAutoScroll() {
     if (container.scrollTop >= textContainer.scrollHeight - container.clientHeight) {
       container.scrollTop = 0; 
     }
-  }, 50); // Интервал прокрутки - каждые 10 миллисекунд (можете настроить под свои нужды)
+  }, 30); // Интервал прокрутки - каждые 10 миллисекунд (можете настроить под свои нужды)
 }
 
 function stopAutoScroll() {
