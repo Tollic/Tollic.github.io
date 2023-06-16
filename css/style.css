@@ -1,6 +1,9 @@
 body{
   background-color: #3b5a80;
   color: rgb(255, 255, 255);
+  /* border: 1px solid #000; */
+  width: 722px;
+  height: 725px;
 }
 
 /* .border {
@@ -17,28 +20,16 @@ body{
 } */
 
 .b_b{
-  position: absolute;
-  top: 5%;
-  left: 10%;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 
 .m_m{
-  position: absolute;
-  top: 9%;
-  left: 10%;
-}
-
-
-.lider {
-  position: absolute;
-  top: 30%;
-  left: 25.5%;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 
 .sum {
-  margin-top: 3.3%;
-  margin-left: 25%;
-
   border-radius: 5%;
   background-color: #ae00ff;
   color: rgb(255, 255, 255);
@@ -47,8 +38,8 @@ body{
 }
 
 .played{
-  margin-top: 3.3%;
-  margin-left: 0%;
+  /* margin-top: 3.3%;
+  margin-left: 0%; */
   border-radius: 5%;
   background-color: #ff0000;
   color: rgb(255, 255, 255);
@@ -58,6 +49,8 @@ body{
 
 .bloc_sum{
   display: flex;
+  margin-top: -17%;
+  margin-left: 60%;
 }
 
 .ob_x {

@@ -79,27 +79,58 @@
 /* .text-block-indented {
   margin-left: 80px;
   font-size: 20px;
-}
+} */
   
-.text-block{
-  margin-bottom: 10px;
+/* .text-block{
+  height: 50px;
+  overflow: hidden;
+} */
+
+.text-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid transparent;
   padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
 }
+
   
-.text-block-left {
+/* .text-block-left {
   margin-right: 10px;
   font-size: 20px;
 } */
+
+
   
 .text-container {
   display: flex;
-  font-size: 20px;
-  margin-top: 3%;
-  margin-left: 3%;
+  font-size: 23px;
+
+  margin-top: 10%;
+  margin-left: 15%;
+
+  /* border: 1px solid #000; */
+  width: 500px;
+  height: 500px;
+
+  justify-content: space-between;
+  padding: 10px;
+  
+  overflow: hidden;
 }
 
+/* #textContainer_left,
+#textContainer_right {
+  height: 525px; 
+  overflow: auto;
+} */
+
 #textContainer_rignt{
-  margin-left: 250px;
+  text-align: right;
+  margin-left: 300px;
+  position: fixed;
 }
   
 /* .text-block.active {
@@ -111,9 +142,14 @@
   transition: font-size 0.3s ease;
 } */
 
+.text-block.active {
+  background-color: rgb(61, 143, 197);
+  width: 600px;
+}
+
 .content_pol{
-  margin-left: 60%;
-  margin-top: -3%;
+  margin-left: 158%;
+  margin-top: -80%;
 }
 
 .chop{
@@ -122,8 +158,9 @@
 }
 
 .content_slot{
-  /* margin-top: 0.5%; */
-  margin-left: 60%;
+  position: absolute;
+  left: 60%;
+  top: 18%;
 
   display: inline-block;
   padding: 10px 20px;
@@ -135,13 +172,14 @@
 }
 
 .contentIndented{
-  margin-left: 80%;
-  margin-top: -3%;
+  margin-left: 210%;
+  margin-top: -7.6%;
 }
 
 .content_sum{
-  /* margin-top: -3%; */
-  margin-left: 13%;
+  position: absolute;
+  left: 80%;
+  top: 18%;
 
   display: inline-block;
   padding: 10px 20px;
@@ -152,3 +190,16 @@
   text-align: center;
 }
 
+.move{
+  position: absolute;
+  left: 70%;
+  top: 30%;
+
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: linear-gradient(to right, #a50202, #6372fa);
+  color: #00ff15;
+  text-decoration: none;
+  text-align: center;
+}
