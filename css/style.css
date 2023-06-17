@@ -20,12 +20,12 @@ body{
 } */
 
 .b_b{
-  margin-left: 25%;
+  margin-left: 30%;
   margin-top: 2%;
 }
 
 .m_m{
-  margin-left: 25%;
+  margin-left: 30%;
   margin-top: 2%;
 }
 
@@ -215,4 +215,30 @@ span {
   color: rgb(255, 255, 255);
   padding: 10px 20px;
   border: none;
+}
+
+.counter-block {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.text-content-block {
+  display: inline;
+}
+
+
+.text-content-block,
+.counter-block {
+  box-sizing: border-box;
+}
+
+.cup{
+  margin-left: 200px;
+  margin-top: 30px;
+  border-radius: 5%;
+  background-color: #547cff;
+  color: rgb(255, 255, 255);
+  padding: 5px 50px;
+  border: none;
+  width: 10px;
 }

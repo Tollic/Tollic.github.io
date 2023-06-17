@@ -188,6 +188,10 @@ function addText() {
   const content = document.getElementById('content').value;
   const counterElement = document.getElementById('cyp_bon');
 
+  if (!counterElement.textContent) {
+    counterElement.textContent = '0'; // Установка начального значения счетчика
+  }
+
   const textBlock = document.createElement('div');
   textBlock.classList.add('text-block', 'text-block-left');
   textBlock.textContent = content;
@@ -233,7 +237,12 @@ function addText() {
   if (textContainer_left.getElementsByClassName('text-block').length === 1) {
     textBlock.classList.add('first-text-block');
   }
+
+  const counter = parseInt(counterElement.textContent) + 1; // Увеличение значения счетчика
+
+  counterElement.textContent = counter.toString(); // Обновление текста элемента счетчика
 }
+
 
 function moveBackground() {
   const activeTextBlock = document.querySelector('.text-block.active');
@@ -241,24 +250,29 @@ function moveBackground() {
     const nextTextBlock = activeTextBlock.nextElementSibling;
     if (nextTextBlock) {
       activeTextBlock.classList.remove('active');
+      activeTextBlock.style.padding = ''; // Сбросить отступ у предыдущего активного блока
       nextTextBlock.classList.add('active');
+      nextTextBlock.style.padding = '5px'; // Установить отступ для нового активного блока
+      nextTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
       activeTextBlock.classList.remove('active');
+      activeTextBlock.style.padding = ''; // Сбросить отступ у предыдущего активного блока
       const firstTextBlock = document.querySelector('.text-block.first-text-block');
       if (firstTextBlock) {
         firstTextBlock.classList.add('active');
+        firstTextBlock.style.padding = '5px'; // Установить отступ для первого активного блока
+        firstTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   } else {
     const firstTextBlock = document.querySelector('.text-block.first-text-block');
     if (firstTextBlock) {
       firstTextBlock.classList.add('active');
+      firstTextBlock.style.padding = '5px'; // Установить отступ для первого активного блока
+      firstTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }
-
-
-
 
 
 function addIndentedText() {
@@ -329,15 +343,3 @@ function updateSum() {
   const playedElement = document.getElementById('played');
   playedElement.textContent = isNaN(sum) ? '0' : sum.toString();
 }
-
-// function moveFocus() {
-//   const activeTextBlock = document.querySelector('.text-block.active');
-//   if (activeTextBlock) {
-//     const nextTextBlock = activeTextBlock.nextElementSibling;
-//     if (nextTextBlock && nextTextBlock.classList.contains('text-block')) {
-//       activeTextBlock.classList.remove('active');
-//       nextTextBlock.classList.add('active');
-//       nextTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
-//     }
-//   }
-// }
