@@ -205,7 +205,7 @@ function addText() {
       textBlock.appendChild(input);
       input.focus();
       textBlock.isEditing = true;
-      textBlock.style.fontSize = '23px';
+      textBlock.style.fontSize = '30px';
 
       input.addEventListener('blur', function () {
         textBlock.textContent = input.value;
@@ -241,37 +241,6 @@ function addText() {
   const counter = parseInt(counterElement.textContent) + 1; // Увеличение значения счетчика
 
   counterElement.textContent = counter.toString(); // Обновление текста элемента счетчика
-}
-
-
-function moveBackground() {
-  const activeTextBlock = document.querySelector('.text-block.active');
-  if (activeTextBlock) {
-    const nextTextBlock = activeTextBlock.nextElementSibling;
-    if (nextTextBlock) {
-      activeTextBlock.classList.remove('active');
-      activeTextBlock.style.padding = ''; // Сбросить отступ у предыдущего активного блока
-      nextTextBlock.classList.add('active');
-      nextTextBlock.style.padding = '5px'; // Установить отступ для нового активного блока
-      nextTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      activeTextBlock.classList.remove('active');
-      activeTextBlock.style.padding = ''; // Сбросить отступ у предыдущего активного блока
-      const firstTextBlock = document.querySelector('.text-block.first-text-block');
-      if (firstTextBlock) {
-        firstTextBlock.classList.add('active');
-        firstTextBlock.style.padding = '5px'; // Установить отступ для первого активного блока
-        firstTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  } else {
-    const firstTextBlock = document.querySelector('.text-block.first-text-block');
-    if (firstTextBlock) {
-      firstTextBlock.classList.add('active');
-      firstTextBlock.style.padding = '5px'; // Установить отступ для первого активного блока
-      firstTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
 }
 
 
@@ -326,7 +295,9 @@ function addIndentedText() {
 }
 
 function updateSum() {
-  sum = 0;
+  let sum = 0;
+  
+  // Обновление суммы из блоков с классом 'text-block-indented'
   const textBlocks = document.querySelectorAll('.text-block-indented');
   textBlocks.forEach(function (textBlock) {
     const content = textBlock.textContent.trim();
@@ -339,7 +310,59 @@ function updateSum() {
       }
     }
   });
-
+  
+  // Добавление значения из блока с id 'sum'
+  const sumElement = document.getElementById('sum');
+  const sumValue = parseFloat(sumElement.textContent);
+  if (!isNaN(sumValue)) {
+    sum -= sumValue;
+  }
+  
   const playedElement = document.getElementById('played');
   playedElement.textContent = isNaN(sum) ? '0' : sum.toString();
 }
+
+function moveBackground() {
+  const activeTextBlock = document.querySelector('.text-block-left.active');
+
+  if (activeTextBlock) {
+    const nextTextBlock = activeTextBlock.nextElementSibling;
+
+    if (nextTextBlock) {
+      activeTextBlock.classList.remove('active');
+      activeTextBlock.style.padding = '';
+      nextTextBlock.classList.add('active');
+      nextTextBlock.style.padding = '5px';
+      nextTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Add ">" symbol to the current left text
+      const currentLeftTextBlock = document.querySelector('.text-block-left.active');
+      if (currentLeftTextBlock) {
+        currentLeftTextBlock.insertAdjacentHTML('afterbegin', '<span class="arrow-left">&gt;</span>');
+      }
+
+      // Remove ">" symbol from the previous left text
+      const previousLeftTextBlock = currentLeftTextBlock.previousElementSibling;
+      if (previousLeftTextBlock) {
+        const arrowLeft = previousLeftTextBlock.querySelector('.arrow-left');
+        if (arrowLeft) {
+          arrowLeft.remove();
+        }
+      }
+    }
+  } else {
+    const firstTextBlock = document.querySelector('.text-block-left');
+    if (firstTextBlock) {
+      firstTextBlock.classList.add('active');
+      firstTextBlock.style.padding = '5px';
+      firstTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Add ">" symbol to the first left text
+      const currentLeftTextBlock = document.querySelector('.text-block-left.active');
+      if (currentLeftTextBlock) {
+        currentLeftTextBlock.insertAdjacentHTML('afterbegin', '<span class="arrow-left">&gt;</span>');
+      }
+    }
+  }
+}
+

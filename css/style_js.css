@@ -1,119 +1,13 @@
-.lider_1-input{
-  resize: none;
-  width: 130px;
-  height: 20px;
-}
-  
-.lider_2-input{
-  resize: none;
-  width: 130px;
-  height: 20px;
-}
-  
-.lider_3-input{
-  resize: none;
-  width: 130px;
-  height: 20px;
-}
-
-.nic_1-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.nic_2-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.nic_3-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.ix_1-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.ix_2-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.ix_3-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.sum_v_1-input {
-    resize: none;
-    width: 120px;
-    height: 20px;
-}
-
-.sum_v_2-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.sum_v_3-input {
-  resize: none;
-  width: 120px;
-  height: 20px;
-}
-
-.text-input {
-  resize: none;
-  width: 100px;
-  height: 20px;
-}
-
-/* .text-block-indented {
-  margin-left: 80px;
-  font-size: 20px;
-} */
-  
-/* .text-block{
-  height: 50px;
-  overflow: hidden;
-} */
-
-.text-block {
-  display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  border: 2px solid transparent;
-  padding: 10px;
-  margin-bottom: 10px;
-  position: relative;
-  box-sizing: border-box;
-}
-
-  
-/* .text-block-left {
-  margin-right: 10px;
-  font-size: 20px;
-} */
-
-
-  
 .text-container {
   display: flex;
-  font-size: 23px;
+  flex-wrap: wrap;
+  font-size: 30px;
 
   margin-top: 10%;
-  margin-left: 28%;
+  margin-left: 8%;
 
   /* border: 1px solid #000; */
-  width: 400px;
+  width: 500px;
   height: 330px;
 
   justify-content: space-between;
@@ -122,28 +16,12 @@
   overflow: hidden;
 }
 
-/* #textContainer_left,
-#textContainer_right {
-  height: 525px; 
-  overflow: auto;
-} */
-
 #textContainer_rignt{
   text-align: right;
   /* margin-top: 10px; */
   margin-left: 240px;
   position: fixed;
-  overflow: auto;
 }
-  
-/* .text-block.active {
-  font-size: 24px;
-}
-  
-#textContainer_left{
-  font-size: 16px;
-  transition: font-size 0.3s ease;
-} */
 
 .text-block.active {
   background-color: rgb(61, 143, 197);

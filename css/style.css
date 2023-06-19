@@ -2,30 +2,18 @@ body{
   background-color: #3b5a80;
   color: rgb(255, 255, 255);
   /* border: 1px solid #000; */
-  width: 722px;
-  height: 725px;
+  width: 600px;
+  height: 500px;
+  margin-left: 200px;
 }
 
-/* .border {
-  position: absolute;
-  top: 6%;
-  left: 3.5%;
-
-  padding: 20px;
-  width: 4%;
-  height: 1%;
-
-  font-size: 15px;
-  font-weight: bold;
-} */
-
 .b_b{
-  margin-left: 30%;
+  margin-left: 10%;
   margin-top: 2%;
 }
 
 .m_m{
-  margin-left: 30%;
+  margin-left: 10%;
   margin-top: 2%;
 }
 
@@ -49,7 +37,7 @@ body{
 
 .bloc_sum{
   display: flex;
-  margin-top: -17%;
+  margin-top: -20%;
   margin-left: 60%;
 }
 
@@ -233,8 +221,12 @@ span {
 }
 
 .cup{
-  margin-left: 200px;
-  margin-top: 30px;
+  /* margin-left: 200px;
+  margin-top: 30px; */
+  position: absolute;
+  top: 70px;
+  left: 600px;
+
   border-radius: 5%;
   background-color: #547cff;
   color: rgb(255, 255, 255);
