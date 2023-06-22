@@ -117,7 +117,7 @@ function updateSum() {
   playedElement.textContent = isNaN(sum) ? '0' : sum.toString();
 }
  
-var currentBackgroundPosition = 0;
+var currentBackgroundPosition = -1;
  
 function moveBackground() {
   const textBlocksLeft = document.querySelectorAll('.text-wrapper #textContainer_left .text-block-left');
