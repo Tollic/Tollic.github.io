@@ -178,191 +178,189 @@
 
 // ввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
 
-let counter = 1;
-let previousTextBlock = null;
-let previousIndentedTextBlock = null;
-let total = 0;
-let sum = 0;
+// let counter = 1;
+// let previousTextBlock = null;
+// let previousIndentedTextBlock = null;
+// let total = 0;
+// let sum = 0;
 
-function addText() {
-  const content = document.getElementById('content').value;
-  const counterElement = document.getElementById('cyp_bon');
+// function addText() {
+//   const content = document.getElementById('content').value;
+//   const counterElement = document.getElementById('cyp_bon');
 
-  if (!counterElement.textContent) {
-    counterElement.textContent = '0'; // Установка начального значения счетчика
-  }
+//   if (!counterElement.textContent) {
+//     counterElement.textContent = '0'; // Установка начального значения счетчика
+//   }
 
-  const textBlock = document.createElement('div');
-  textBlock.classList.add('text-block', 'text-block-left');
-  textBlock.textContent = content;
+//   const textBlock = document.createElement('div');
+//   textBlock.classList.add('text-block-left');
+//   textBlock.textContent = content;
 
-  textBlock.addEventListener('click', function () {
-    if (!textBlock.isEditing) {
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.value = textBlock.textContent;
-      textBlock.textContent = '';
-      textBlock.appendChild(input);
-      input.focus();
-      textBlock.isEditing = true;
-      textBlock.style.fontSize = '30px';
+//   textBlock.addEventListener('click', function () {
+//     if (!textBlock.isEditing) {
+//       const input = document.createElement('input');
+//       input.type = 'text';
+//       input.value = textBlock.textContent;
+//       textBlock.textContent = '';
+//       textBlock.appendChild(input);
+//       input.focus();
+//       textBlock.isEditing = true;
+//       textBlock.style.fontSize = '30px';
 
-      input.addEventListener('blur', function () {
-        textBlock.textContent = input.value;
-        textBlock.isEditing = false;
-      });
-    }
-  });
+//       input.addEventListener('blur', function () {
+//         textBlock.textContent = input.value;
+//         textBlock.isEditing = false;
+//       });
+//     }
+//   });
 
-  const deleteButton = document.createElement('span');
-  deleteButton.addEventListener('click', function () {
-    textBlock.remove();
-  });
+//   const textContainer_left = document.getElementById('textContainer_left');
+//   textContainer_left.appendChild(textBlock);
 
-  textBlock.appendChild(deleteButton);
+//   document.getElementById('content').value = '';
 
-  const textContainer_left = document.getElementById('textContainer_left');
-  textContainer_left.appendChild(textBlock);
+//   if (previousTextBlock !== null) {
+//     previousTextBlock.style.marginBottom = '10px';
+//     previousTextBlock.style.background = '';
+//   }
 
-  document.getElementById('content').value = '';
+//   previousTextBlock = textBlock;
 
-  if (previousTextBlock !== null) {
-    previousTextBlock.style.marginBottom = '10px';
-    previousTextBlock.style.background = '';
-  }
+//   const counter = parseInt(counterElement.textContent) + 1; // Увеличение значения счетчика
 
-  previousTextBlock = textBlock;
-
-  // Добавление синего заднего фона на первый добавленный текст
-  if (textContainer_left.getElementsByClassName('text-block').length === 1) {
-    textBlock.classList.add('first-text-block');
-  }
-
-  const counter = parseInt(counterElement.textContent) + 1; // Увеличение значения счетчика
-
-  counterElement.textContent = counter.toString(); // Обновление текста элемента счетчика
-}
+//   counterElement.textContent = counter.toString(); // Обновление текста элемента счетчика
+// }
 
 
-function addIndentedText() {
-  const contentIndented = document.getElementById('contentIndented').value;
+// function addIndentedText() {
+//   const contentIndented = document.getElementById('contentIndented').value;
 
-  const textBlockIndented = document.createElement('div');
-  textBlockIndented.classList.add('text-block', 'text-block-indented');
-  textBlockIndented.textContent = contentIndented;
+//   const textBlockIndented = document.createElement('div');
+//   textBlockIndented.classList.add('textContainer_right');
+//   textBlockIndented.textContent = contentIndented;
 
-  textBlockIndented.addEventListener('click', function () {
-    if (!textBlockIndented.isEditing) {
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.value = textBlockIndented.textContent;
-      textBlockIndented.textContent = '';
-      textBlockIndented.appendChild(input);
-      input.focus();
-      textBlockIndented.isEditing = true;
+//   textBlockIndented.addEventListener('click', function () {
+//     if (!textBlockIndented.isEditing) {
+//       const input = document.createElement('input');
+//       input.type = 'text';
+//       input.value = textBlockIndented.textContent;
+//       textBlockIndented.textContent = '';
+//       textBlockIndented.appendChild(input);
+//       input.focus();
+//       textBlockIndented.isEditing = true;
 
-      input.addEventListener('blur', function () {
-        textBlockIndented.textContent = input.value;
-        textBlockIndented.isEditing = false;
-        updateSum();
-      });
-    }
-  });
+//       input.addEventListener('blur', function () {
+//         textBlockIndented.textContent = input.value;
+//         textBlockIndented.isEditing = false;
+//         updateSum();
+//       });
+//     }
+//   });
 
-  const deleteButton = document.createElement('span');
-  deleteButton.addEventListener('click', function () {
-    textBlockIndented.remove();
-    updateSum();
-  });
+//   const textContainer_rignt = document.getElementById('textContainer_rignt');
+//   textContainer_rignt.appendChild(textBlockIndented);
 
-  textBlockIndented.appendChild(deleteButton);
+//   document.getElementById('contentIndented').value = '';
 
-  const textContainer_rignt = document.getElementById('textContainer_rignt');
-  textContainer_rignt.appendChild(textBlockIndented);
+//   previousIndentedTextBlock = textBlockIndented;
 
-  document.getElementById('contentIndented').value = '';
+//   updateSum();
+// }
 
-  // textBlockIndented.style.background = '#3d74b8';
-
-  if (previousIndentedTextBlock !== null) {
-    previousIndentedTextBlock.style.marginBottom = '10px';
-    previousIndentedTextBlock.style.background = '';
-  }
-
-  previousIndentedTextBlock = textBlockIndented;
-
-  updateSum();
-}
-
-function updateSum() {
-  let sum = 0;
+// function updateSum() {
+//   let sum = 0;
   
-  // Обновление суммы из блоков с классом 'text-block-indented'
-  const textBlocks = document.querySelectorAll('.text-block-indented');
-  textBlocks.forEach(function (textBlock) {
-    const content = textBlock.textContent.trim();
-    const regex = /=\s*(\d+)/;
-    const match = regex.exec(content);
-    if (match) {
-      const number = parseInt(match[1]);
-      if (!isNaN(number)) {
-        sum += number;
-      }
-    }
-  });
+//   // Обновление суммы из блоков с классом 'textContainer_right'
+//   const textBlocks = document.querySelectorAll('.textContainer_right');
+//   textBlocks.forEach(function (textBlock) {
+//     const content = textBlock.textContent.trim();
+//     const regex = /=\s*(\d+)/;
+//     const match = regex.exec(content);
+//     if (match) {
+//       const number = parseInt(match[1]);
+//       if (!isNaN(number)) {
+//         sum += number;
+//       }
+//     }
+//   });
   
-  // Добавление значения из блока с id 'sum'
-  const sumElement = document.getElementById('sum');
-  const sumValue = parseFloat(sumElement.textContent);
-  if (!isNaN(sumValue)) {
-    sum -= sumValue;
-  }
+//   // Добавление значения из блока с id 'sum'
+//   const sumElement = document.getElementById('sum');
+//   const sumValue = parseFloat(sumElement.textContent);
+//   if (!isNaN(sumValue)) {
+//     sum -= sumValue;
+//   }
   
-  const playedElement = document.getElementById('played');
-  playedElement.textContent = isNaN(sum) ? '0' : sum.toString();
-}
+//   const playedElement = document.getElementById('played');
+//   playedElement.textContent = isNaN(sum) ? '0' : sum.toString();
+// }
 
-function moveBackground() {
-  const activeTextBlock = document.querySelector('.text-block-left.active');
+// var currentBackgroundPosition = 0;
 
-  if (activeTextBlock) {
-    const nextTextBlock = activeTextBlock.nextElementSibling;
 
-    if (nextTextBlock) {
-      activeTextBlock.classList.remove('active');
-      activeTextBlock.style.padding = '';
-      nextTextBlock.classList.add('active');
-      nextTextBlock.style.padding = '5px';
-      nextTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-      // Add ">" symbol to the current left text
-      const currentLeftTextBlock = document.querySelector('.text-block-left.active');
-      if (currentLeftTextBlock) {
-        currentLeftTextBlock.insertAdjacentHTML('afterbegin', '<span class="arrow-left">&gt;</span>');
-      }
+// function moveBackground() {
+//   const textBlocksLeft = document.querySelectorAll('.text-block-left');
+//   const textBlocksRight = document.querySelectorAll('.textContainer_right');
+//   const numTextBlocks = Math.max(textBlocksLeft.length, textBlocksRight.length);
 
-      // Remove ">" symbol from the previous left text
-      const previousLeftTextBlock = currentLeftTextBlock.previousElementSibling;
-      if (previousLeftTextBlock) {
-        const arrowLeft = previousLeftTextBlock.querySelector('.arrow-left');
-        if (arrowLeft) {
-          arrowLeft.remove();
-        }
-      }
-    }
-  } else {
-    const firstTextBlock = document.querySelector('.text-block-left');
-    if (firstTextBlock) {
-      firstTextBlock.classList.add('active');
-      firstTextBlock.style.padding = '5px';
-      firstTextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//   if (numTextBlocks === 0) {
+//     return;
+//   }
 
-      // Add ">" symbol to the first left text
-      const currentLeftTextBlock = document.querySelector('.text-block-left.active');
-      if (currentLeftTextBlock) {
-        currentLeftTextBlock.insertAdjacentHTML('afterbegin', '<span class="arrow-left">&gt;</span>');
-      }
-    }
-  }
-}
+//   currentBackgroundPosition++;
 
+//   if (currentBackgroundPosition >= numTextBlocks) {
+//     currentBackgroundPosition = 0;
+//   }
+
+//   textBlocksLeft.forEach(function (textBlockLeft) {
+//     textBlockLeft.style.marginBottom = '10px';
+//     textBlockLeft.style.background = '';
+//   });
+
+//   textBlocksRight.forEach(function (textBlockRight) {
+//     textBlockRight.style.marginBottom = '10px';
+//     textBlockRight.style.background = '';
+//   });
+
+//   if (currentBackgroundPosition < textBlocksLeft.length) {
+//     textBlocksLeft[currentBackgroundPosition].style.marginBottom = '0';
+//     textBlocksLeft[currentBackgroundPosition].style.background = 'blue';
+//     textBlocksLeft[currentBackgroundPosition].style.width = '1500px';
+//     textBlocksLeft[currentBackgroundPosition].style.borderRadius = '25px';
+//   }
+
+//   if (currentBackgroundPosition < textBlocksRight.length) {
+//     textBlocksRight[currentBackgroundPosition].style.marginBottom = '0';
+//     textBlocksRight[currentBackgroundPosition].style.background = 'blue';
+//     textBlocksRight[currentBackgroundPosition].style.borderRadius = '25px';
+//   }
+  
+//   const containerLeft = document.getElementById('textContainer_left');
+//   const containerRight = document.getElementById('textContainer_rignt');
+//   const nextTextBlockLeft = textBlocksLeft[currentBackgroundPosition];
+//   const nextTextBlockRight = textBlocksRight[currentBackgroundPosition];
+
+//   if (nextTextBlockLeft) {
+//     const containerRectLeft = containerLeft.getBoundingClientRect();
+//     const nextTextBlockRectLeft = nextTextBlockLeft.getBoundingClientRect();
+//     const scrollOffsetLeft = nextTextBlockRectLeft.top - containerRectLeft.top;
+
+//     containerLeft.scrollTo({
+//       top: scrollOffsetLeft,
+//       behavior: 'smooth'
+//     });
+//   }
+
+//   if (nextTextBlockRight) {
+//     const containerRectRight = containerRight.getBoundingClientRect();
+//     const nextTextBlockRectRight = nextTextBlockRight.getBoundingClientRect();
+//     const scrollOffsetRight = nextTextBlockRectRight.top - containerRectRight.top;
+
+//     containerRight.scrollTo({
+//       top: scrollOffsetRight,
+//       behavior: 'smooth'
+//     });
+//   }
+// }

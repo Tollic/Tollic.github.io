@@ -1,29 +1,5 @@
-.text-container {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 30px;
-
-  margin-top: 10%;
-  margin-left: 8%;
-
-  /* border: 1px solid #000; */
-  width: 500px;
-  height: 330px;
-
-  justify-content: space-between;
-  padding: 10px;
-  
-  overflow: hidden;
-}
-
-#textContainer_rignt{
-  text-align: right;
-  /* margin-top: 10px; */
-  margin-left: 240px;
-  position: fixed;
-}
-
 .text-block.active {
+  z-index: -1;
   background-color: rgb(61, 143, 197);
   width: 430px;
   border: none;
@@ -31,61 +7,7 @@
   display: inline-block;
 }
 
-.content_pol{
-  margin-left: 800px;
-  margin-top: -400px;
-}
-
 .chop{
   display: flex;
   margin-top: 2%;
-}
-
-.content_slot{
-  position: absolute;
-  left: 42%;
-  top: 25%;
-
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background: linear-gradient(to right, #a50202, #6372fa);
-  color: #00ff15;
-  text-decoration: none;
-  text-align: center;
-}
-
-.contentIndented{
-  margin-left: 1100px;
-  margin-top: -7.6%;
-}
-
-.content_sum{
-  position: absolute;
-  left: 58%;
-  top: 25%;
-
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background: linear-gradient(to right, #a50202, #6372fa);
-  color: #00ff15;
-  text-decoration: none;
-  text-align: center;
-}
-
-.move{
-  margin-top: 100px;
-  margin-left: 100px;
-  position: absolute;
-  left: 50%;
-  top: 30%;
-
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background: linear-gradient(to right, #a50202, #6372fa);
-  color: #00ff15;
-  text-decoration: none;
-  text-align: center;
 }

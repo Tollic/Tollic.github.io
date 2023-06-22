@@ -41,13 +41,13 @@ body{
   margin-left: 60%;
 }
 
-.ob_x {
+/* .ob_x {
   position: absolute;
   top: 26.5%;
   left: 25%;
-}
+} */
 
-.ras_x {
+/* .ras_x {
   position: absolute;
   top: 26.5%;
   left: 28.5%;
@@ -57,7 +57,7 @@ body{
   position: absolute;
   top: 26.5%;
   left: 37%;
-}
+} */
 
 .cyp_bon {
   position: absolute;
@@ -65,18 +65,12 @@ body{
   left: 43%;
 }
 
-.ras_rub {
-  position: absolute;
-  top: 26.5%;
-  left: 21%;
-}
-
 .editor-input {
   height: 20px;
   width: 75px;
 }
 
-.lider_1 {
+/* .lider_1 {
   position: absolute;
   top: 35%;
   left: 22%;
@@ -128,9 +122,9 @@ body{
   position: absolute;
   top: 48%;
   left: 40%;
-}
+} */
 
-.scrollable-container {
+/* .scrollable-container {
   position: absolute;
   top: 20%;
   left: 10%;
@@ -140,7 +134,7 @@ body{
 
   overflow-y: scroll; 
   border: 1px solid #a09e9e;
-}
+} */
 
 span {
   margin-right: 35px;
@@ -205,12 +199,12 @@ span {
   border: none;
 }
 
-.counter-block {
+/* .counter-block {
   font-weight: bold;
   margin-right: 5px;
-}
+} */
 
-.text-content-block {
+/* .text-content-block {
   display: inline;
 }
 
@@ -218,7 +212,7 @@ span {
 .text-content-block,
 .counter-block {
   box-sizing: border-box;
-}
+} */
 
 .cup{
   /* margin-left: 200px;
